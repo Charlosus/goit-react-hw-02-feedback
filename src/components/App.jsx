@@ -1,20 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FeedbackOptions } from './FeedbackOptions';
 import { Section } from './Section';
 import { Statistics } from './Statistics';
 
 export const App = () => {
-  const [feedback, setFeedback] = useState({
-    good: 0,
-    neutral: 0,
-    bad: 0,
+  const [feedback, setFeedback] = useState(() => {
+    const saved = sessionStorage.getItem('feedback');
+    return saved ? JSON.parse(saved) : { good: 0, neutral: 0, bad: 0 };
   });
+  useEffect(() => {
+    sessionStorage.setItem('feedback', JSON.stringify(feedback));
+  }, [feedback]);
 
   const handleLeaveFeedback = type => {
     setFeedback(prev => ({
       ...prev,
       [type]: prev[type] + 1,
-      
     }));
   };
 
@@ -26,6 +27,7 @@ export const App = () => {
       style={{
         height: '100vh',
         display: 'flex',
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: 40,

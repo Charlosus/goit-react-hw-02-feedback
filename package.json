@@ -1,12 +1,13 @@
 {
-  "name": "react-homework-template",
+  "name": "goit-react-hw-02-feedback",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://goitacademy.github.io/react-homework-template/",
+  "homepage": "https://Charlosus.github.io/goit-react-hw-02-feedback/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "modern-normalize": "^3.0.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "^0.0.0",
@@ -19,7 +20,9 @@
     "lint:js": "eslint src/**/*.{js,jsx}",
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "eslintConfig": {
     "extends": [
@@ -41,6 +44,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.5.1",
+    "gh-pages": "^6.3.0",
     "vite": "^6.3.5"
   }
 }
