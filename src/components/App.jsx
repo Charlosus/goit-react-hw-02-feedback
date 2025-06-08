@@ -3,6 +3,7 @@ import { FeedbackOptions } from './FeedbackOptions';
 import { Section } from './Section';
 import { Statistics } from './Statistics';
 import { Notification } from './Notification';
+import css from './App.module.css';
 
 export const App = () => {
   const [feedback, setFeedback] = useState(() => {
@@ -24,17 +25,7 @@ export const App = () => {
   const positivePercentage =
     total > 0 ? Math.round((feedback.good / total) * 100) : 0;
   return (
-    <div
-      style={{
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 30,
-        color: '#010101',
-      }}
-    >
+    <div className={css.div}>
       <Section title="Leave your Feedback">
         <FeedbackOptions
           options={Object.keys(feedback)}

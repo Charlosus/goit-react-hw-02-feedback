@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import css from './App.module.css';
 
 export const Statistics = ({
   good,
@@ -8,7 +9,7 @@ export const Statistics = ({
   positivePercentage,
 }) => {
   return (
-    <div>
+    <div className={css.innerDiv}>
       <p>Good: {good}</p>
       <p>Neutral: {neutral}</p>
       <p>Bad: {bad}</p>
@@ -17,7 +18,6 @@ export const Statistics = ({
     </div>
   );
 };
-
 
 Statistics.propTypes = {
   good: PropTypes.number.isRequired,
